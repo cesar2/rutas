@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "ngblog-b868c": {
+      "hosting": {
+        "ngBlog": [
+          "ngblog-b868c"
+        ]
+      }
+    },
+    "rutas-2c0dd": {
+      "hosting": {
+        "ngBlog": [
+          "rutas-2c0dd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ngblog-b868c"
+  }
+}
