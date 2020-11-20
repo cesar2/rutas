@@ -15,6 +15,7 @@ export class PostService {
   private postsCollection: AngularFirestoreCollection<PostI>;
   private filePath: any;
   private downloadURL: Observable<string>;  
+  private downloadTrackURL: Observable<string>;  
 
 
   constructor(private afs: AngularFirestore, private storage: AngularFireStorage ) { 
@@ -53,8 +54,9 @@ export class PostService {
     }
   }
 
-  public preAdAndUpdatePost(post: PostI, image: FileI): void{
+  public preAdAndUpdatePost(post: PostI, image: FileI, gpx: FileI): void{
     this.uploadImage(post, image);
+    this.uploadTrack(post, gpx);
   }
 
   private savePost(post: PostI){
@@ -63,6 +65,7 @@ export class PostService {
       titlePost: post.titlePost,
       contentPost: post.contentPost,
       imagePost: this.downloadURL,
+      gpxPost: this.downloadTrackURL,
       fileRef: this.filePath,
       tagsPost: post.tagsPost
     };
@@ -88,6 +91,25 @@ export class PostService {
           fileRef.getDownloadURL().subscribe( urlImage => {
             this.downloadURL = urlImage;
             console.log("DonloadURL", this.downloadURL);
+            this.savePost(post);
+          })
+        }
+
+        )
+      ).subscribe();
+  }
+
+  private uploadTrack(post: PostI, gpx:FileI){
+    console.log("Subiendo Track...");
+    this.filePath = `tracks/${gpx.name}`;
+    const fileRef = this.storage.ref(this.filePath);
+    const task = this.storage.upload(this.filePath, gpx);
+    task.snapshotChanges()
+      .pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe( urlTrack => {
+            this.downloadTrackURL = urlTrack;
+            console.log("download Track URL", this.downloadTrackURL);
             this.savePost(post);
           })
         }

@@ -5,5 +5,5 @@ export interface PostI{
     id?: string;
     tagsPost: string;
     fileRef?: string;
-    gpx?: any;
+    gpxPost?: any;
 }

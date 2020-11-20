@@ -1,11 +1,18 @@
+
+<div class="map-container">
+    <div class="map-frame">
+      <div id="map"></div>
+    </div>
+</div>
+
+
 <div class="container" *ngIf="post$ | async as post; else loading">
     <mat-card class="post-card">
-        
         <mat-card-content>
             <mat-card-title>
                 {{post.titlePost}}
             </mat-card-title>
-            <img matCardImage class="align-center" [src]="post.imagePost" />
+            <img matCardImage class="align-center" [src]="post.imagePost" width="80" />
             <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
             <p class="content">
                 {{ post.contentPost }}
@@ -25,5 +32,5 @@
     <div class="container-spinner">
         <mat-spinner></mat-spinner>
     </div>
-    Loading...
+    Cargando...
 </ng-template>

@@ -7,16 +7,16 @@
     </a>
 
     <a routerLink="/about" routerLinkActive="active">
-        <button mat-button >About</button>
+        <button mat-button >Sobre mí</button>
     </a>
 
     <a *ngIf="authSvc.userData$ | async; else showLogin" (click)="onLogout()">
-        <button mat-button >Logout</button>
+        <button mat-button >Cerrar Sesión</button>
     </a>
 
     <ng-template #showLogin>
         <a routerLink="/login" routerLinkActive="active">
-            <button mat-button >Login</button>
+            <button mat-button >Iniciar Sesión</button>
         </a>
     </ng-template>
   

@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
-import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   {
@@ -14,7 +13,6 @@ const routes: Routes = [
       { path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule) },
       { path: 'post/:id', component: DetailsPostComponent, },
       { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
-      { path: 'map', component: MapComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   },

@@ -22,7 +22,7 @@
     }
 
     img{
-        width: 80%;
+        width: 30%;
         border-radius: 6px;
     }
 }
@@ -33,3 +33,24 @@
     display: block;
     margin : 6px;
 }
+
+.map-container {
+    position: absolute;
+    top: 550px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+  }
+  
+  .map-frame {
+    border: 2px solid black;
+    margin: auto;
+    height: 70%;
+    width: 50%;
+  }
+  
+  #map {
+    height: 100%;
+    width: 100%;
+  }

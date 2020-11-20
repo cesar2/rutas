@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  public appName = 'ngBlog';
+  public appName = 'Rutas';
   constructor(public authSvc: AuthService) { }
 
   ngOnInit(): void {

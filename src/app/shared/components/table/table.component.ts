@@ -50,19 +50,19 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   onDeletePost(post: PostI) {
     Swal.fire({
-      title: 'Are you sure?',
-      text: `You won't be able to revert this!`,
+      title: '¿Estás seguro?',
+      text: `No podrás restablecer el post`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Sí, borrarlo!'
     }).then(result => {
       if (result.value) {
         this.postSvc.deletePostById(post).then(() => {
-          Swal.fire('Deleted!', 'Your  post has been deleted.', 'success');
+          Swal.fire('Deleted!', 'El post ha sido borrado.', 'success');
         }).catch((error) => {
-          Swal.fire('Error!', 'There was an error deleting this post', 'error');
+          Swal.fire('Error!', 'Hubo un error borrando el post', 'error');
         });
       }
     }); 
@@ -75,7 +75,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   openDialog(post?: PostI): void {
     const config = {
       data: {
-        message: post ? 'Edit Post' : 'New Post',
+        message: post ? 'Editar Post' : 'Nuevo Post',
         content: post
       }
     };

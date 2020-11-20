@@ -10,6 +10,7 @@ import { PostService } from '../post.service';
 })
 export class NewPostComponent implements OnInit {
   private image:any;
+  private gpx:any;
   constructor(private postSvc: PostService) { }
 
   public newPostForm = new FormGroup({
@@ -17,19 +18,23 @@ export class NewPostComponent implements OnInit {
     contentPost: new FormControl('', Validators.required),
     tagsPost: new FormControl('', Validators.required),
     imagePost: new FormControl('', Validators.required),
-    gpx: new FormControl('',Validators.required)
+    gpxPost: new FormControl('',Validators.required)
   });
 
   ngOnInit(): void {
   }
 
   addNewPost(data: PostI){
-    console.log('Add new', data);
-    this.postSvc.preAdAndUpdatePost(data, this.image);
+    console.log('Adding new Post', data);
+    this.postSvc.preAdAndUpdatePost(data, this.image, this.gpx);
   }
 
   handleImage(event:any):void{
     this.image = event.target.files[0];
+  }
+
+  handleGpx(event:any):void{
+    this.gpx = event.target.files[0];
   }
 
 }
