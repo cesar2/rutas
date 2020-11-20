@@ -53,4 +53,37 @@
   #map {
     height: 100%;
     width: 100%;
-  }  
+  }
+
+  .track-details{
+    float: right;
+    top: 150px;
+    margin: 100px;
+  }
+
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: RoyalBlue;
+  }

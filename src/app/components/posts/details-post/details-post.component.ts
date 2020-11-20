@@ -76,6 +76,12 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
           shadowUrl: '../../assets/pin-shadow.png'
         }
       }).on('loaded', function(e) {
+        document.getElementsByClassName("distance")[0].textContent = (e.target.get_distance()/1000).toFixed(2);
+        document.getElementsByClassName("duration")[0].textContent = e.target.get_duration_string_iso(e.target.get_total_time(), false).toString();
+        document.getElementsByClassName("elevationGain")[0].textContent = e.target.get_elevation_gain().toString();
+        document.getElementsByClassName("elevationLoss")[0].textContent = e.target.get_elevation_loss().toString();
+        document.getElementsByClassName("elevationMax")[0].textContent = e.target.get_elevation_max().toString();
+        document.getElementsByClassName("elevationMin")[0].textContent = e.target.get_elevation_min().toString();
         map.fitBounds(e.target.getBounds());
       }).addTo(map);
     });
@@ -83,6 +89,14 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
     L.control.layers(bMaps).addTo(map);
     L.control.zoom();
   }
+
+  
+  downloadFile(){
+    this.post$.subscribe( post => {
+      window.open(post.gpxPost);
+    });
+  }
+
 }
 
 function GV_Background_Map_List() {

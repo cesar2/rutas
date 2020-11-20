@@ -14,6 +14,7 @@ export class PostService {
 
   private postsCollection: AngularFirestoreCollection<PostI>;
   private filePath: any;
+  private filePathGpx: any;
   private downloadURL: Observable<string>;  
   private downloadTrackURL: Observable<string>;  
 
@@ -91,7 +92,7 @@ export class PostService {
           fileRef.getDownloadURL().subscribe( urlImage => {
             this.downloadURL = urlImage;
             console.log("DonloadURL", this.downloadURL);
-            this.savePost(post);
+            //this.savePost(post);
           })
         }
 
@@ -101,9 +102,9 @@ export class PostService {
 
   private uploadTrack(post: PostI, gpx:FileI){
     console.log("Subiendo Track...");
-    this.filePath = `tracks/${gpx.name}`;
-    const fileRef = this.storage.ref(this.filePath);
-    const task = this.storage.upload(this.filePath, gpx);
+    this.filePathGpx = `tracks/${gpx.name}`;
+    const fileRef = this.storage.ref(this.filePathGpx);
+    const task = this.storage.upload(this.filePathGpx, gpx);
     task.snapshotChanges()
       .pipe(
         finalize(() => {

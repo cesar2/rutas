@@ -1,32 +1,71 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="map-container">
     <div class="map-frame">
         <div id="map"></div>
     </div>
-</div>        
+</div>
+
+<div class="row" *ngIf="post$ | async as post; else loading">
+    <div>
+        <span class="material-icons"> trending_flat </span>
+        <span class="distance"></span>&nbsp;km
+    </div>
+    <div>
+        <span class="material-icons">   access_time </span>
+        <span class="duration"></span>
+        
+    </div>
+    <div>
+        <span class="material-icons"> vertical_align_top </span>
+        <span class="elevationMax"></span>&nbsp;m
+        
+    </div>
+    <div>
+        <span class="material-icons"> vertical_align_bottom </span>
+        <span class="elevationMin"></span>&nbsp;m
+        
+    </div>
+    <div>
+        <span class="material-icons"> trending_up </span>
+        <span class="elevationGain"></span>&nbsp;m
+    </div>
+    
+    <div>
+        <span class="material-icons">
+            trending_down
+            </span>
+        <span class="elevationLoss"></span>&nbsp;m
+    </div>
+
+    <button class="btn" (click)="downloadFile()"><i class="fa fa-download"></i> Download</button>
+</div>
 
 
-<div class="container" *ngIf="post$ | async as post; else loading">
+<!-- <div class="container" *ngIf="post$ | async as post; else loading">
     <mat-card class="post-card">
         <mat-card-content>
             <mat-card-title>
                 {{post.titlePost}}
             </mat-card-title>
             <img matCardImage class="align-center" [src]="post.imagePost" width="80" /> 
-            <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+            <mat-card-subtitle>Subtitle</mat-card-subtitle>
             <p class="content">
                 {{ post.contentPost }}
             </p>
             
         </mat-card-content>
-         <!-- <mat-card-actions align="start">
+         <mat-card-actions align="start">
             <button mat-button (click)="onAction1">Action1</button> 
         </mat-card-actions>
         <mat-card-footer>
             Footer
-        </mat-card-footer> -->
+        </mat-card-footer>
     </mat-card>
-</div>
+</div> -->
+
+
+
 
 <ng-template #loading>
     <div class="container-spinner">
