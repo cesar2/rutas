@@ -54,18 +54,14 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
   private initMap(): void {
 
     let bMaps = Array.from(this.baseMaps).reduce((obj, [key, value]) => (
-      Object.assign(obj, { [key]: value }) // Be careful! Maps can have non-String keys; object literals can't.
+      Object.assign(obj, { [key]: value })
     ), {});
-
-    var mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
-    var satelite = L.tileLayer(mbUrl, {id: 'mapbox/satellite-v9', tileSize: 512, zoomOffset: -1, attribution: ""});
 
     var map = L.map('map', {
         center: [39.73, -104.99],
         zoom: 10,
         layers: []
     });
-
 
     this.post$.subscribe( post => {
       new L.GPX(post.gpxPost, {async: true,
@@ -133,4 +129,3 @@ function GV_Background_Map_List() {
     ,{ id:'Ulti4', menu_name:'Google ulti 4', url: "https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5FcfHYiC0ylTqSygWEcu"}
 	];
 }
-

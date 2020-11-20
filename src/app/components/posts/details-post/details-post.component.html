@@ -1,9 +1,9 @@
 
 <div class="map-container">
     <div class="map-frame">
-      <div id="map"></div>
+        <div id="map"></div>
     </div>
-</div>
+</div>        
 
 
 <div class="container" *ngIf="post$ | async as post; else loading">
@@ -12,14 +12,14 @@
             <mat-card-title>
                 {{post.titlePost}}
             </mat-card-title>
-            <img matCardImage class="align-center" [src]="post.imagePost" width="80" />
+            <img matCardImage class="align-center" [src]="post.imagePost" width="80" /> 
             <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
             <p class="content">
                 {{ post.contentPost }}
             </p>
-
+            
         </mat-card-content>
-        <!-- <mat-card-actions align="start">
+         <!-- <mat-card-actions align="start">
             <button mat-button (click)="onAction1">Action1</button> 
         </mat-card-actions>
         <mat-card-footer>
