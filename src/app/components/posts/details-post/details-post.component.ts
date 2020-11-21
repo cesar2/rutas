@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
 import { PostI } from 'src/app/shared/models/post.interface';
 import { AfterViewInit } from '@angular/core';
 import * as L from 'leaflet-gpx';
-import { PipeResolver } from '@angular/compiler';
+import 'src/assets/leaflet-elevation.js';
+//import 'src/assets/leaflet-ui.js';
+
 
 
 
@@ -53,6 +55,41 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
 
   private initMap(): void {
 
+    var elevation_options = {
+      // Default chart colors: theme lime-theme, magenta-theme, ...
+      theme: "lightblue-theme",
+      // Chart container outside/inside map container
+      detached: true,
+      // if (detached), the elevation chart container
+      elevationDiv: "#elevation-div",
+      // if (!detached) autohide chart profile on chart mouseleave
+      autohide: false,
+      // if (!detached) initial state of chart profile control
+      collapsed: false,
+      // if (!detached) control position on one of map corners
+      position: "topright",
+      // Autoupdate map center on chart mouseover.
+      followMarker: true,
+      // Chart distance/elevation units.
+      imperial: false,
+      // [Lat, Long] vs [Long, Lat] points. (leaflet default: [Lat, Long])
+      reverseCoords: false,
+      // Acceleration chart profile: true || "summary" || "disabled" || false
+      acceleration: false,
+      // Slope chart profile: true || "summary" || "disabled" || false
+      slope: false,
+      // speed chart profile: true || "summary" || "disabled" || false
+      speed: false,
+      // Time stamp labels.
+      time: false,
+      // Summary track info style: "line" || "multiline" || false
+      summary: 'multiline',
+      // Toggle chart ruler filter.
+      ruler: true,
+      // Toggle chart legend filter.
+      legend: true,
+    };
+
     let bMaps = Array.from(this.baseMaps).reduce((obj, [key, value]) => (
       Object.assign(obj, { [key]: value })
     ), {});
@@ -63,7 +100,14 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
         layers: []
     });
 
+    // Instantiate elevation control.
+    var controlElevation = L.control.elevation(elevation_options).addTo(map);
+
+    
+    
     this.post$.subscribe( post => {
+      // Load track from url (allowed data types: "*.geojson", "*.gpx")
+    controlElevation.load(post.gpxPost);
       new L.GPX(post.gpxPost, {async: true,
         marker_options: {
           wptIconUrls: {
@@ -85,7 +129,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
         map.fitBounds(e.target.getBounds());
       }).addTo(map);
     });
-
+    
     L.control.layers(bMaps).addTo(map);
     L.control.zoom();
   }
