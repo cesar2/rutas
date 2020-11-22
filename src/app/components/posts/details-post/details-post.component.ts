@@ -6,7 +6,7 @@ import { PostI } from 'src/app/shared/models/post.interface';
 import { AfterViewInit } from '@angular/core';
 import * as L from 'leaflet-gpx';
 import 'src/assets/leaflet-elevation.js';
-//import 'src/assets/leaflet-ui.js';
+import 'src/assets/leaflet-ui.js';
 
 
 
