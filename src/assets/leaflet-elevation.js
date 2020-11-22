@@ -2718,7 +2718,7 @@
       this.on("elechart_summary", function () {
         this.track_info.distance = this._distance || 0;
 
-        this._summary.append("totlen", L._("Total Length: "), this.track_info.distance.toFixed(2) + '&nbsp;' + this._xLabel);
+        this._summary.append("totlen", L._("Distancia Total: "), this.track_info.distance.toFixed(2) + '&nbsp;' + this._xLabel);
       });
       this.on("eledata_clear", function () {
         this._distance = 0;
@@ -2784,7 +2784,7 @@
         this.track_info.elevation_max = this._maxElevation || 0;
         this.track_info.elevation_min = this._minElevation || 0;
 
-        this._summary.append("maxele", L._("Max Elevation: "), this.track_info.elevation_max.toFixed(2) + '&nbsp;' + this._yLabel).append("minele", L._("Min Elevation: "), this.track_info.elevation_min.toFixed(2) + '&nbsp;' + this._yLabel);
+        this._summary.append("maxele", L._("Elevación Máxima: "), this.track_info.elevation_max.toFixed(2) + '&nbsp;' + this._yLabel).append("minele", L._("Elevación mínima: "), this.track_info.elevation_min.toFixed(2) + '&nbsp;' + this._yLabel);
       });
       this.on("eledata_clear", function () {
         this._maxElevation = null;

@@ -1,32 +1,3 @@
-.mat-card {
-    background: #fff;
-    color: #000;
-    width: 80%;
-    margin: 1% auto;
-    padding: 2%;
-    border-radius: 0;
-    box-shadow: initial;
-
-    .mat-card-title{
-        font-size: 2rem;
-        text-transform: uppercase;
-    }
-
-    .mat-card-content{
-        width: 80%;
-        text-align: center;
-        margin: 0 auto;
-        p.content{
-            text-align: initial;
-        }
-    }
-
-    img{
-        width: 30%;
-        border-radius: 6px;
-    }
-}
-
 .align-center{
     text-align: center;
     clear: both;
@@ -36,54 +7,29 @@
 
 .map-container {
     position: absolute;
-    top: 150px;
+    top: 50px;
     left: 0px;
     right: 0;
     bottom: 0;
     margin: 30px;
   }
   
-  .map-frame {
-    border: 2px solid black;
-    margin: auto;
-    height: 70%;
-    width: 50%;
-  }
-  
   #map {
-    height: 100%;
+    height: 65%;
     width: 100%;
   }
 
-  .track-details{
-    float: right;
-    top: 150px;
-    margin: 100px;
-  }
 
-  .column {
-    float: left;
-    width: 50%;
-    padding: 10px;
-  }
+  // .btn {
+  //   background-color: DodgerBlue;
+  //   border: none;
+  //   color: white;
+  //   padding: 12px 30px;
+  //   cursor: pointer;
+  //   font-size: 20px;
+  // }
   
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .btn {
-    background-color: DodgerBlue;
-    border: none;
-    color: white;
-    padding: 12px 30px;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  
-  /* Darker background on mouse-over */
-  .btn:hover {
-    background-color: RoyalBlue;
-  }
+  // /* Darker background on mouse-over */
+  // .btn:hover {
+  //   background-color: RoyalBlue;
+  // }
