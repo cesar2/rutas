@@ -1,6 +1,6 @@
 [
     {
-      "origin": ["http://localhost:4200"],
+      "origin": ["http://localhost:4200","https://rutas-2c0dd.web.app"],
       "method": ["GET"],
       "maxAgeSeconds": 3600
     }
