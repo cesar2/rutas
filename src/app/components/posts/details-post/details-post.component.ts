@@ -87,7 +87,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
       attribution: 'Rendered with <a href="https://www.maptiler.com/desktop/">MapTiler Desktop</a>',
       tms: false
     };
-    this.layer = L.tileLayer('/assets/cazorla/{z}/{x}/{y}.png', options).addTo(map);
+    this.layer = L.tileLayer('/assets/Cazorla/{z}/{x}/{y}.png', options).addTo(map);
 
     this.post$.subscribe( post => {
       controlElevation.load(post.gpxPost);
