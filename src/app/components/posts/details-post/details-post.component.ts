@@ -18,6 +18,7 @@ import 'src/assets/leaflet-ui.js';
 })
 export class DetailsPostComponent implements OnInit, AfterViewInit{
   public post$: Observable<PostI>;
+  public layer: any;
 
   constructor(private route: ActivatedRoute, private postSvc: PostService) { }
 
@@ -34,7 +35,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
 
     var elevation_options = {
       // Default chart colors: theme lime-theme, magenta-theme, ...
-      theme: "lightblue-theme",
+      theme: "magenta-theme",
       // Chart container outside/inside map container
       detached: false,
       // if (detached), the elevation chart container
@@ -44,7 +45,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
       // if (!detached) initial state of chart profile control
       collapsed: true,
       // if (!detached) control position on one of map corners
-      position: "topright",
+      position: "bottomleft",
       // Autoupdate map center on chart mouseover.
       followMarker: true,
       // Chart distance/elevation units.
@@ -58,9 +59,9 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
       // speed chart profile: true || "summary" || "disabled" || false
       speed: false,
       // Time stamp labels.
-      time: false,
+      time: true,
       // Summary track info style: "line" || "multiline" || false
-      summary: 'multiline',
+      summary: 'inline',
       // Toggle chart ruler filter.
       ruler: true,
       // Toggle chart legend filter.
@@ -76,10 +77,28 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
 
     var controlElevation = L.control.elevation(elevation_options).addTo(map);
 
+    var mapMinZoom = 9;
+    var mapMaxZoom = 14;
+
+    var options = {
+      minZoom: mapMinZoom,
+      maxZoom: mapMaxZoom,
+      opacity: 1.0,
+      attribution: 'Rendered with <a href="https://www.maptiler.com/desktop/">MapTiler Desktop</a>',
+      tms: false
+    };
+    this.layer = L.tileLayer('/assets/cazorla/{z}/{x}/{y}.png', options).addTo(map);
+
     this.post$.subscribe( post => {
       controlElevation.load(post.gpxPost);
     });
 
     L.control.zoom();
   }
+
+  setOpacity(value){
+    this.layer.setOpacity(value);
+  }
+ 
 }
+
