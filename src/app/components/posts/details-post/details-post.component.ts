@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../post.service';
 import { Observable } from 'rxjs';
@@ -7,6 +7,7 @@ import { AfterViewInit } from '@angular/core';
 import * as L from 'leaflet-gpx';
 import 'src/assets/leaflet-elevation.js';
 import 'src/assets/leaflet-ui.js';
+import { ElementRef } from '@angular/core';
 
 
 
@@ -19,6 +20,7 @@ import 'src/assets/leaflet-ui.js';
 export class DetailsPostComponent implements OnInit, AfterViewInit{
   public post$: Observable<PostI>;
   public layer: any;
+  @ViewChild('inputRange') slider: ElementRef;
 
   constructor(private route: ActivatedRoute, private postSvc: PostService) { }
 
@@ -87,10 +89,18 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
       attribution: 'Rendered with <a href="https://www.maptiler.com/desktop/">MapTiler Desktop</a>',
       tms: false
     };
-    this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Cazorla/{z}/{x}/{y}.png', options).addTo(map);
-
+    
     this.post$.subscribe( post => {
+      if(post.titlePost.includes("CZ"))
+      {
+        this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Cazorla/{z}/{x}/{y}.png', options).addTo(map);
+      }
+      else
+      {
+        this.slider.nativeElement.style.visibility = "hidden";
+      }
       controlElevation.load(post.gpxPost);
+
     });
 
     L.control.zoom();
