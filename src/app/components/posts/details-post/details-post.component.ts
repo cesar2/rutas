@@ -68,6 +68,14 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
       ruler: true,
       // Toggle chart legend filter.
       legend: true,
+      gpxOptions: {
+        marker_options: {
+           startIconUrl: '../../../../assets/pin-icon-start.png',
+           endIconUrl: '../../../../assets/pin-icon-end.png',
+           shadowUrl: '../../../../assets/pin-shadow.png'
+        }
+      },
+
     };
 
     var map = L.map('map', {
@@ -94,6 +102,10 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
       if(post.titlePost.includes("CZ"))
       {
         this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Cazorla/{z}/{x}/{y}.png', options).addTo(map);
+      }
+      else if(post.titlePost.includes("SG"))
+      {
+        this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Segura/{z}/{x}/{y}.png', options).addTo(map);
       }
       else
       {
