@@ -20,6 +20,52 @@ import { ElementRef } from '@angular/core';
 export class DetailsPostComponent implements OnInit, AfterViewInit{
   public post$: Observable<PostI>;
   public layer: any;
+
+  public elevation_options = {
+    // Default chart colors: theme lime-theme, magenta-theme, ...
+    theme: "magenta-theme",
+    // Chart container outside/inside map container
+    detached: false,
+    // if (detached), the elevation chart container
+    elevationDiv: "#elevation-div",
+    // if (!detached) autohide chart profile on chart mouseleave
+    autohide: false,
+    // if (!detached) initial state of chart profile control
+    collapsed: true,
+    // if (!detached) control position on one of map corners
+    position: "bottomleft",
+    // Autoupdate map center on chart mouseover.
+    followMarker: true,
+    // Chart distance/elevation units.
+    imperial: false,
+    // [Lat, Long] vs [Long, Lat] points. (leaflet default: [Lat, Long])
+    reverseCoords: false,
+    // Acceleration chart profile: true || "summary" || "disabled" || false
+    acceleration: false,
+    // Slope chart profile: true || "summary" || "disabled" || false
+    slope: false,
+    // speed chart profile: true || "summary" || "disabled" || false
+    speed: false,
+    // Time stamp labels.
+    time: true,
+    // Summary track info style: "line" || "multiline" || false
+    summary: 'inline',
+    // Toggle chart ruler filter.
+    ruler: true,
+    // Toggle chart legend filter.
+    legend: true,
+    gpxOptions: {
+      marker_options: {
+         startIconUrl: '../../../../assets/pin-icon-start.png',
+         endIconUrl: '../../../../assets/pin-icon-end.png',
+         shadowUrl: '../../../../assets/pin-shadow.png'
+      }
+    },
+
+  };
+
+
+
   @ViewChild('inputRange') slider: ElementRef;
 
   constructor(private route: ActivatedRoute, private postSvc: PostService) { }
@@ -35,49 +81,6 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
 
   private initMap(): void {
 
-    var elevation_options = {
-      // Default chart colors: theme lime-theme, magenta-theme, ...
-      theme: "magenta-theme",
-      // Chart container outside/inside map container
-      detached: false,
-      // if (detached), the elevation chart container
-      elevationDiv: "#elevation-div",
-      // if (!detached) autohide chart profile on chart mouseleave
-      autohide: false,
-      // if (!detached) initial state of chart profile control
-      collapsed: true,
-      // if (!detached) control position on one of map corners
-      position: "bottomleft",
-      // Autoupdate map center on chart mouseover.
-      followMarker: true,
-      // Chart distance/elevation units.
-      imperial: false,
-      // [Lat, Long] vs [Long, Lat] points. (leaflet default: [Lat, Long])
-      reverseCoords: false,
-      // Acceleration chart profile: true || "summary" || "disabled" || false
-      acceleration: false,
-      // Slope chart profile: true || "summary" || "disabled" || false
-      slope: false,
-      // speed chart profile: true || "summary" || "disabled" || false
-      speed: false,
-      // Time stamp labels.
-      time: true,
-      // Summary track info style: "line" || "multiline" || false
-      summary: 'inline',
-      // Toggle chart ruler filter.
-      ruler: true,
-      // Toggle chart legend filter.
-      legend: true,
-      gpxOptions: {
-        marker_options: {
-           startIconUrl: '../../../../assets/pin-icon-start.png',
-           endIconUrl: '../../../../assets/pin-icon-end.png',
-           shadowUrl: '../../../../assets/pin-shadow.png'
-        }
-      },
-
-    };
-
     var map = L.map('map', {
         center: [39.73, -104.99],
         zoom: 10,
@@ -85,7 +88,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
         layers: []
     });
 
-    var controlElevation = L.control.elevation(elevation_options).addTo(map);
+    var controlElevation = L.control.elevation(this.elevation_options).addTo(map);
 
     var mapMinZoom = 9;
     var mapMaxZoom = 14;
