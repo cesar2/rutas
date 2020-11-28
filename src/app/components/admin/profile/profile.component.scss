@@ -8,7 +8,8 @@ $file_white: #ccc;
 $card_background: #66636b;
 
 $button_purpure: #451e89;
-     
+$button_blue: #17349c;     
+
 .profile-card{
   width: 100%;
   height: 100vh;
@@ -24,7 +25,7 @@ $button_purpure: #451e89;
     p{
       position: absolute;
       width: 100%;
-      background:$button_purpure;
+      background:$button_blue;
       color: $default_white;
       text-transform: uppercase;
       transition: all 0.5s ease;
@@ -36,7 +37,7 @@ $button_purpure: #451e89;
       border-radius: 50%;
       border: 2px solid $default_white;
       &:hover{
-        border: 2px solid $button_purpure;
+        border: 2px solid $button_blue;
         cursor: pointer;
       }
     }
@@ -63,7 +64,7 @@ $button_purpure: #451e89;
     margin: 0 auto;
   }
   input.mat-flat-button{
-    background: #7b1fa2;
+    background: #17349c;
     padding: 0.4rem;
     color: #fff;
   }

@@ -20,6 +20,19 @@ import { ElementRef } from '@angular/core';
 export class DetailsPostComponent implements OnInit, AfterViewInit{
   public post$: Observable<PostI>;
   public layer: any;
+  public controlElevation:any;
+  public map:any;
+  public mapMinZoom = 9;
+  public mapMaxZoom = 14;
+
+
+  public layeroptions = {
+    minZoom: this.mapMinZoom,
+    maxZoom: this.mapMaxZoom,
+    opacity: 1.0,
+    attribution: 'Rendered with <a href="https://www.maptiler.com/desktop/">MapTiler Desktop</a>',
+    tms: false
+  };
 
   public elevation_options = {
     // Default chart colors: theme lime-theme, magenta-theme, ...
@@ -88,33 +101,25 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
         layers: []
     });
 
-    var controlElevation = L.control.elevation(this.elevation_options).addTo(map);
-
-    var mapMinZoom = 9;
-    var mapMaxZoom = 14;
-
-    var options = {
-      minZoom: mapMinZoom,
-      maxZoom: mapMaxZoom,
-      opacity: 1.0,
-      attribution: 'Rendered with <a href="https://www.maptiler.com/desktop/">MapTiler Desktop</a>',
-      tms: false
-    };
+    // Elevation
+    this.controlElevation = L.control.elevation(this.elevation_options).addTo(map);
     
+
+    // Add imagen
     this.post$.subscribe( post => {
       if(post.titlePost.includes("CZ"))
       {
-        this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Cazorla/{z}/{x}/{y}.png', options).addTo(map);
+        this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Cazorla/{z}/{x}/{y}.png', this.layeroptions).addTo(map);
       }
       else if(post.titlePost.includes("SG"))
       {
-        this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Segura/{z}/{x}/{y}.png', options).addTo(map);
+        this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Segura/{z}/{x}/{y}.png', this.layeroptions).addTo(map);
       }
       else
       {
         this.slider.nativeElement.style.visibility = "hidden";
       }
-      controlElevation.load(post.gpxPost);
+      this.controlElevation.load(post.gpxPost);
 
     });
 
@@ -123,6 +128,25 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
 
   setOpacity(value){
     this.layer.setOpacity(value);
+
+    console.log(this.layeroptions);
+
+    this.post$.subscribe( post => {
+      if(post.titlePost.includes("CZ"))
+      {
+        this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Cazorla/{z}/{x}/{y}.png', this.layeroptions).addTo(this.map);
+      }
+      else if(post.titlePost.includes("SG"))
+      {
+        this.layer = L.tileLayer('https://rutas.fra1.digitaloceanspaces.com/Segura/{z}/{x}/{y}.png', this.layeroptions).addTo(this.map);
+      }
+      else
+      {
+        this.slider.nativeElement.style.visibility = "hidden";
+      }
+      this.controlElevation.load(post.gpxPost);
+
+    });
   }
  
 }
