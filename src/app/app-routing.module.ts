@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
+import { MackayComponent } from './components/posts/mackay/mackay.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule) },
+      { path: 'mackay', component: MackayComponent, },
       { path: 'post/:id', component: DetailsPostComponent, },
       { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
