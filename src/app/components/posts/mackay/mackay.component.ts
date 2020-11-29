@@ -114,7 +114,7 @@ export class MackayComponent implements OnInit {
       "../../../../assets/Ruta 6 longitud 26,6 Km.gpx",
       "../../../../assets/Ruta 7 longitud 15,9 km.gpx",
       "../../../../assets/Ruta 8 longitud 19 km.gpx",
-      //"../../../../assets/Ruta 9 longitud 22,4 km.gpx",
+      "../../../../assets/Ruta 9 longitud 22,4 km.gpx",
       "../../../../assets/Ruta 10 longitud 8 km.gpx",
       "../../../../assets/Ruta 11 longitud 18,2 km.gpx",
       "../../../../assets/Ruta 12 longitud 14,3 km.gpx",
