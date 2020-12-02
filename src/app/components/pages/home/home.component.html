@@ -1,7 +1,9 @@
-<mat-form-field>
-    <input  matInput
-    (keyup)="applyFilter($event)" placeholder="Buscar..."/>
-</mat-form-field>
+<div class="buscar">
+    <mat-form-field>
+        <input  matInput
+        (keyup)="applyFilter($event)" placeholder="Buscar..."/>
+    </mat-form-field>    
+</div>
 
 <div class="container" *ngIf="posts$ | async as posts; else loading">
     <!-- {{ posts$ | async | json}} -->
