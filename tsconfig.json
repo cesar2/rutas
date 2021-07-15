@@ -4,14 +4,20 @@
 
   To learn more about this file see: https://angular.io/config/solution-tsconfig.
 */
+
 {
+  "compilerOptions": 
+  {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+  },
   "files": [],
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      "path": "./tsconfig.app.json",
     },
     {
-      "path": "./tsconfig.spec.json"
+      "path": "./tsconfig.spec.json",
     }
 ]
 }

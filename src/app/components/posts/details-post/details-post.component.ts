@@ -85,7 +85,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
 
   ngOnInit(){
     const id = this.route.snapshot.params.id;
-    this.post$ = this.postSvc.getOnePost(id);
+    this.post$ = this.postSvc.getOnePost(id); 
   }
 
   ngAfterViewInit(): void {
@@ -103,7 +103,25 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
 
     // Elevation
     this.controlElevation = L.control.elevation(this.elevation_options).addTo(map);
+    console.log(this.controlElevation.track_info);
+    this.post$.subscribe( post => {
+      var gpx = new L.GPX(post.gpxPost, {async: true});
+
+      gpx.on("addline", function(e) {
+  
+        // leaflet-gpx.js
+        console.log("Elevation gain " + gpx.get_elevation_gain());
+        console.log("Elevation loss " + gpx.get_elevation_loss());
+        console.log("Elevation distancia " + gpx.get_distance());
+        console.log("Elevation min el" + gpx.get_elevation_min());
+        console.log("Elevation max el " + gpx.get_elevation_max());
+    });
     
+
+      // leaflet-elevation.js
+      console.log(this.controlElevation.track_info);
+    });
+
 
     // Add imagen
     this.post$.subscribe( post => {

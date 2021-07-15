@@ -1,18 +1,21 @@
 <div class="new-post-container">
     <form [formGroup]="editPostForm" (ngSubmit)="editPost(editPostForm.value)">
       <mat-form-field>
-        <mat-label>Title</mat-label>
-        <input matInput placeholder="Title post" formControlName="titlePost">
+        <mat-label>Título</mat-label>
+        <input matInput placeholder="Título de la ruta" formControlName="titlePost">
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Content</mat-label>
-        <input matInput placeholder="Content post" formControlName="contentPost">
+      <mat-form-field >
+        <mat-label>Descripción</mat-label>
+        <textarea matInput placeholder="Descripción de la ruta" formControlName="contentPost"></textarea>
       </mat-form-field>
       <mat-form-field>
         <mat-select placeholder="Tags" multiple formControlName="tagsPost">
-          <mat-option value="life">Life</mat-option>
-          <mat-option value="sport">Sport</mat-option>
-          <mat-option value="beauty">Beauty</mat-option>
+          <mat-option value="Moderada">Moderada</mat-option>
+          <mat-option value="Facil">Facil</mat-option>
+          <mat-option value="dificil">Dificil</mat-option>
+          <mat-option value="Sierra del Pozo">Sierra del Pozo</mat-option>
+          <mat-option value="Sierra de Cazorla">Sierra de Cazorla</mat-option>
+          <mat-option value="Sierra de Segura y las villas">Sierra de Segura y las villas</mat-option>
         </mat-select>
       </mat-form-field>
       <div class="container-input-file">

@@ -60,7 +60,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     }).then(result => {
       if (result.value) {
         this.postSvc.deletePostById(post).then(() => {
-          Swal.fire('Deleted!', 'El post ha sido borrado.', 'success');
+          Swal.fire('Eliminado!', 'El post ha sido borrado.', 'success');
         }).catch((error) => {
           Swal.fire('Error!', 'Hubo un error borrando el post', 'error');
         });
@@ -75,7 +75,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   openDialog(post?: PostI): void {
     const config = {
       data: {
-        message: post ? 'Editar Post' : 'Nuevo Post',
+        message: post ? 'Editar Ruta' : 'Nueva Ruta',
         content: post
       }
     };
