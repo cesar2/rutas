@@ -1,6 +1,6 @@
 [
     {
-      "origin": ["http://localhost:4200","https://rutas-2c0dd.web.app"],
+      "origin": ["http://localhost:4200","https://rutas-2c0dd.web.app", "https://www.rutaspozoalcon.com", "https://www.rutaspozoalcon.es"],
       "method": ["GET"],
       "maxAgeSeconds": 3600
     }

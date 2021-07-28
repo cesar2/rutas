@@ -7,9 +7,10 @@
     justify-content: center;
 
     .post-card{
-        background: #444;
-        color: #fff;
+        background: #fff;
+        color: rgb(0, 0, 0);
         border-radius: 5px;
+        border-color: #4e3b31 solid !important;
         padding: 20px;
         font-size: 150%;
     }  
