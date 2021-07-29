@@ -38,7 +38,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
     // Default chart colors: theme lime-theme, magenta-theme, ...
     theme: "magenta-theme",
     // Chart container outside/inside map container
-    detached: false,
+    detached: true,
     // if (detached), the elevation chart container
     elevationDiv: "#elevation-div",
     // if (!detached) autohide chart profile on chart mouseleave
