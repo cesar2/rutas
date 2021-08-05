@@ -64,6 +64,7 @@ export class PostService {
     console.log("Entra en SAVEPOST()");
     const postObj = {
       titlePost: post.titlePost,
+      urlTitle: post.titlePost.replace(/-/g, ' ').replace(/\s+/g,' ').replace(/\s+/g, '-').toLowerCase(),
       contentPost: post.contentPost,
       imagePost: this.downloadURL,
       gpxPost: this.downloadTrackURL,
@@ -77,7 +78,7 @@ export class PostService {
     }
     else{
       console.log("SavePost() cuando ES NUEVO");
-      return this.postsCollection.add(postObj);
+      return this.postsCollection.doc(postObj.urlTitle).set(postObj);
     }
   }
 

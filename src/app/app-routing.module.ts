@@ -11,11 +11,11 @@ const routes: Routes = [
     component: ContainerAppComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule) },
+      { path: '', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule) },
       { path: 'mackay', component: MackayComponent, },
-      { path: 'post/:id', component: DetailsPostComponent, },
+      { path: 'post/:urlTitle', component: DetailsPostComponent, },
       { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
-      { path: '', redirectTo: 'home', pathMatch: 'full' }
+      { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
   },
 

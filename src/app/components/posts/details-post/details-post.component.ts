@@ -84,8 +84,8 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
   constructor(private route: ActivatedRoute, private postSvc: PostService) { }
 
   ngOnInit(){
-    const id = this.route.snapshot.params.id;
-    this.post$ = this.postSvc.getOnePost(id); 
+    const urlTitle = this.route.snapshot.params.urlTitle;
+    this.post$ = this.postSvc.getOnePost(urlTitle); 
   }
 
   ngAfterViewInit(): void {
