@@ -15,7 +15,7 @@ const routes: Routes = [
       { path: 'mackay', component: MackayComponent, },
       { path: 'post/:urlTitle', component: DetailsPostComponent, },
       { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule) },
-      { path: '**', redirectTo: '', pathMatch: 'full' }
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
     ]
   },
 
