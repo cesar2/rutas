@@ -6,8 +6,8 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Descripción</mat-label>
-            <input matInput placeholder="Descripción de la ruta" formControlName="contentPost">
-        </mat-form-field>
+            <textarea matInput placeholder="Descripción de la ruta" formControlName="contentPost"></textarea>
+          </mat-form-field>
         <mat-form-field>
             <mat-select placeholder="Etiquetas" multiple  formControlName="tagsPost">
                 <mat-option value="Moderada">Moderada</mat-option>
@@ -21,13 +21,13 @@
         <div class="container-input-file">
             <label class="custom-file">
                 <input type="file" formControlName="imagePost" (change)="handleImage($event)"/>
-                <mat-icon>cloud_upload</mat-icon><span>ELEGIR IMAGEN</span>
+                <mat-icon>cloud_upload</mat-icon><span>Elegir imagen</span>
             </label>
         </div>
         <div class="container-input-file">
             <label class="custom-file">
                 <input type="file" formControlName="gpxPost" (change)="handleGpx($event)"/>
-                <mat-icon>cloud_upload</mat-icon><span> SUBIR TRACK (.GPX)</span>
+                <mat-icon>cloud_upload</mat-icon><span> Subir Track (.GPX)</span>
             </label>
         </div>
         <div class="container-button">

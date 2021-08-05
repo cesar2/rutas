@@ -51,12 +51,13 @@ export class TableComponent implements OnInit, AfterViewInit {
   onDeletePost(post: PostI) {
     Swal.fire({
       title: '¿Estás seguro?',
-      text: `No podrás restablecer el post`,
+      text: `No podrás restablecer la ruta`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, borrarlo!'
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Sí, borrar!'
     }).then(result => {
       if (result.value) {
         this.postSvc.deletePostById(post).then(() => {

@@ -55,9 +55,11 @@ export class PostService {
     }
   }
 
-  public preAdAndUpdatePost(post: PostI, image: FileI, gpx: FileI): void{
-    this.uploadImage(post, image);
-    this.uploadTrack(post, gpx);
+  public async preAdAndUpdatePost(post: PostI, image: FileI, gpx: FileI){
+     this.uploadImage(post, image).then(value => {
+      this.uploadTrack(post, gpx)
+     }
+       );
   }
 
   private savePost(post: PostI){
@@ -87,18 +89,21 @@ export class PostService {
     this.filePath = `images/${image.name}`;
     const fileRef = this.storage.ref(this.filePath);
     const task = this.storage.upload(this.filePath, image);
-    task.snapshotChanges()
+    return new Promise(resolve => {
+      task.snapshotChanges()
       .pipe(
         finalize(() => {
           fileRef.getDownloadURL().subscribe( urlImage => {
             this.downloadURL = urlImage;
             console.log("DonloadURL", this.downloadURL);
-            //this.savePost(post);
+            post.imagePost =this.downloadURL;
+            resolve(post.imagePost);
           })
         }
 
         )
       ).subscribe();
+    })
   }
 
   private uploadTrack(post: PostI, gpx:FileI){
