@@ -41,6 +41,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
     detached: true,
     // if (detached), the elevation chart container
     elevationDiv: "#elevation-div",
+    
     // if (!detached) autohide chart profile on chart mouseleave
     autohide: false,
     // if (!detached) initial state of chart profile control

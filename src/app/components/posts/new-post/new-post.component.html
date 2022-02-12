@@ -20,13 +20,13 @@
         </mat-form-field>
         <div class="container-input-file">
             <label class="custom-file">
-                <input type="file" formControlName="imagePost" (change)="handleImage($event)"/>
+                <input type="file" accept="image/*" formControlName="imagePost" (change)="handleImage($event)" multiple/>
                 <mat-icon>cloud_upload</mat-icon><span>Elegir imagen</span>
             </label>
         </div>
         <div class="container-input-file">
             <label class="custom-file">
-                <input type="file" formControlName="gpxPost" (change)="handleGpx($event)"/>
+                <input type="file" accept=".gpx" formControlName="gpxPost" (change)="handleGpx($event)" />
                 <mat-icon>cloud_upload</mat-icon><span> Subir Track (.GPX)</span>
             </label>
         </div>

@@ -30,7 +30,7 @@ export class NewPostComponent implements OnInit {
   }
 
   handleImage(event:any):void{
-    this.image = event.target.files[0];
+    this.image = event.target.files;
   }
 
   handleGpx(event:any):void{

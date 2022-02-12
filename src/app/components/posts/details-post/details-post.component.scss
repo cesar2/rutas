@@ -8,10 +8,12 @@
 .map-container {
     position: absolute;
     top: 100px;
-    left: 0px;
+    left: 200px;
     right: 0;
     bottom: 50px;
     margin: 30px;
+    width: 80%;
+    height: 50%;
   }
   
   #map {
@@ -19,4 +21,9 @@
     width: 60%;
   }
 
+  #estadisticas {
+    position: relative;
+    float: right;
+    right: 200px;
+  }
   #slider{ position: absolute; top: 15px; right: 75px; }
