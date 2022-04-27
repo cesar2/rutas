@@ -37,9 +37,9 @@ export class AuthService {
   }
 
   private uploadImage(user: UserI, image: FileI): void {
-    this.filePath = `images/${image.name}`;
+    this.filePath = `images/${image[0].name}`;
     const fileRef = this.storage.ref(this.filePath);
-    const task = this.storage.upload(this.filePath, image);
+    const task = this.storage.upload(this.filePath, image[0]);
     task.snapshotChanges()
       .pipe(
         finalize(() => {
