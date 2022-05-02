@@ -1,13 +1,15 @@
 .container{
-    margin-top: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: grid;
-    grid-template-columns: 35% 35%;
+    grid-template-columns: 30% 30% 30%;
     grid-column-gap: 10px;
     grid-row-gap: 15px;
     justify-content: center;
 
     .post-card{
         background: #fff;
+        margin-bottom: 20px;
         color: rgb(0, 0, 0);
         border-radius: 5px;
         border-color: #4e3b31 solid !important;

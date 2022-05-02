@@ -4,9 +4,15 @@ a{
     text-decoration: none;
 }
 
-img{
-    height: 200px;
-}
+// img{
+//     height: 200px;
+// }
+
+mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 80%;
+  }
 
 p.content {
     white-space: nowrap;

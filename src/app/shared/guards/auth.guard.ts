@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     return this.authSvc.userData$.pipe(
       map ( user => {
         if (!user){
-          this.router.navigate(['/login'])
+          this.router.navigate(['/'])
           return false;
         }
         return true;
