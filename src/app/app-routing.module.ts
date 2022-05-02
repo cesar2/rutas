@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '', 
     component: ContainerAppComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard], // Comentar esta linea cuando quiera que cualquier usuario acceda
     children: [
       { path: '', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule) },
       { path: 'mackay', component: MackayComponent, },
