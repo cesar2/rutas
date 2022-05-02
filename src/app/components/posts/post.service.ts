@@ -71,6 +71,7 @@ export class PostService {
       imagePost: this.downloadURL,
       gpxPost: this.downloadTrackURL,
       fileRef: this.filePath,
+      fileRefimagekit: "https://ik.imagekit.io/fd7vntlxh/"+this.filePath+"?tr=w-300,h-200",
       tagsPost: post.tagsPost
     };
 

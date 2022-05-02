@@ -7,5 +7,6 @@ export interface PostI{
     id?: string;
     tagsPost: string;
     fileRef?: string;
+    fileRefimagekit?: string;
     gpxPost?: any;
 }
