@@ -66,7 +66,6 @@ export class PostService {
     console.log("Entra en SAVEPOST()");
     const postObj = {
       titlePost: post.titlePost,
-      subtitlePost: post.subtitlePost,
       urlTitle: post.titlePost.replace(/-/g, ' ').replace(/\s+/g,' ').replace(/\s+/g, '-').toLowerCase(),
       contentPost: post.contentPost,
       imagePost: this.downloadURL,
@@ -88,7 +87,7 @@ export class PostService {
 
   private uploadImage(post: PostI, image:FileI){
     console.log("Subiendo imagen...");
-    this.filePath = `images/${image[0].name}`;
+    this.filePath = `images/`+post.titlePost+`/`+image[0].name;
     const fileRef = this.storage.ref(this.filePath);
     const task = this.storage.upload(this.filePath, image[0]);
     return new Promise(resolve => {
