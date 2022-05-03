@@ -66,6 +66,7 @@ export class PostService {
     console.log("Entra en SAVEPOST()");
     const postObj = {
       titlePost: post.titlePost,
+      subtitlePost: post.subtitlePost,
       urlTitle: post.titlePost.replace(/-/g, ' ').replace(/\s+/g,' ').replace(/\s+/g, '-').toLowerCase(),
       contentPost: post.contentPost,
       imagePost: this.downloadURL,
