@@ -20,6 +20,7 @@ export class EditPostComponent implements OnInit {
   public editPostForm = new FormGroup({
     id: new FormControl('', Validators.required),
     titlePost: new FormControl('', Validators.required),
+    subTitle: new FormControl('', Validators.required),
     contentPost: new FormControl('', Validators.required),
     tagsPost: new FormControl('', Validators.required),
     imagePost: new FormControl('', Validators.required),
@@ -50,6 +51,7 @@ export class EditPostComponent implements OnInit {
     this.editPostForm.patchValue({
       id: this.post.id,
       titlePost: this.post.titlePost,
+      subTitle: this.post.subTitle,
       contentPost: this.post.contentPost,
       tagsPost: this.post.tagsPost
     });

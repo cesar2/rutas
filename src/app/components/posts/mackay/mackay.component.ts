@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet-gpx';
-import 'src/assets/leaflet-elevation.js';
-import 'src/assets/leaflet-ui.js';
-
 @Component({
   selector: 'app-mackay',
   templateUrl: './mackay.component.html',

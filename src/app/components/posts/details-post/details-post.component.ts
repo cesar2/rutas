@@ -36,7 +36,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
 
   public elevation_options = {
     // Default chart colors: theme lime-theme, magenta-theme, ...
-    theme: "magenta-theme",
+    theme: "red-theme",
     // Chart container outside/inside map container
     detached: true,
     // if (detached), the elevation chart container
@@ -70,7 +70,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
     legend: true,
     gpxOptions: {
       marker_options: {
-         startIconUrl: '../../../../assets/pin-icon-start.png',
+         startIconUrl: '../../../../assets/pin-icon-start.svg',
          endIconUrl: '../../../../assets/pin-icon-end.png',
          shadowUrl: '../../../../assets/pin-shadow.png'
       }
@@ -136,7 +136,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
       }
       else
       {
-        this.slider.nativeElement.style.visibility = "hidden";
+        //this.slider.nativeElement.style.visibility = "hidden";
       }
       this.controlElevation.load(post.gpxPost);
 
@@ -161,7 +161,7 @@ export class DetailsPostComponent implements OnInit, AfterViewInit{
       }
       else
       {
-        this.slider.nativeElement.style.visibility = "hidden";
+        //this.slider.nativeElement.style.visibility = "hidden";
       }
       this.controlElevation.load(post.gpxPost);
 

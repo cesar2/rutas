@@ -23,6 +23,7 @@ import { EditPostComponent } from './components/posts/edit-post/edit-post.compon
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
 import { MackayComponent } from './components/posts/mackay/mackay.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MackayComponent } from './components/posts/mackay/mackay.component';
     EditPostComponent,
     DetailsPostComponent,
     MackayComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

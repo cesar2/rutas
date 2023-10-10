@@ -1,5 +1,6 @@
 export interface PostI{
     titlePost: string;
+    subTitle?: string;
     contentPost: string;
     imagePost?: any;
     urlTitle?: string;

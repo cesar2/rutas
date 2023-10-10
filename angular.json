@@ -29,9 +29,13 @@
             ],
             "styles": [
               "src/my-theme.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "../rutas/node_modules/leaflet/dist/leaflet.css"
             ],
-            "scripts": []
+            "scripts": [
+              "../rutas/node_modules/leaflet/dist/leaflet.js"
+              
+            ]
           },
           "configurations": {
             "production": {
